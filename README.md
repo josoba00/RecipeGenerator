@@ -1,5 +1,9 @@
 # RecipeForge - Forge Every Recipe Into Clarity
-![Logo](docs/LogoDesign/LogoHalf/logo-transparent-half.svg)
+<p align="center">
+  <img src="docs/LogoDesign/LogoBroad/logo-transparent-broad.png"
+       alt="drawing"
+       height="300" />
+</p>
 
 ## Recipe Import Web Application
 
