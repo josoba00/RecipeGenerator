@@ -96,38 +96,38 @@ Note: If extraction or parsing fails, the system shall return an error and not c
 ### 5.1 Performance
 | Numbering | Description                                                                                                                                                                               |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NFR‑1     | For typical usage (single user, small dataset), API responses for simple queries (list recipes, get recipe) should be returned within 1 second on a local development machine. testlio+1​ |
+| NFR‑1     | For typical usage (single user, small dataset), API responses for simple queries (list recipes, get recipe) should be returned within 1 second on a local development machine.  |
 
 ### 5.2 Usability
 | Numbering | Description                                                                                                                        |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| NFR‑2     | The UI shall be simple and easy to navigate with a clear separation between the recipe list and the recipe detail view. testlio+1​ |
-| NFR‑3     | Basic usage (view list, open recipe, create new recipe) should be understandable without documentation. testlio+1​                 |
+| NFR‑2     | The UI shall be simple and easy to navigate with a clear separation between the recipe list and the recipe detail view.  |
+| NFR‑3     | Basic usage (view list, open recipe, create new recipe) should be understandable without documentation.                  |
 
 ### 5.3 Reliabilty and Data Integrity
 | Numbering | Description                                                                                                          |
 | --------- | -------------------------------------------------------------------------------------------------------------------- |
-| NFR‑4     | After database integration, data shall persist across application restarts. dataforest+1​                            |
-| NFR‑5     | The system shall not create incomplete recipes when an error occurs during PDF parsing. d3jqtupnzefbtn.cloudfront+1​ |
+| NFR‑4     | After database integration, data shall persist across application restarts.                             |
+| NFR‑5     | The system shall not create incomplete recipes when an error occurs during PDF parsing.  |
 
 ### 5.4 Compatibility
 | Numbering | Description                                                                                                      |
 | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| NFR‑6     | The web application shall work on current versions of major browsers (Chrome, Firefox, Edge, Safari). testlio+1​ |
+| NFR‑6     | The web application shall work on current versions of major browsers (Chrome, Firefox, Edge, Safari).  |
 
 ### 5.5 Maintainability
 | Numbering | Description                                                                                                                              |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| NFR‑7     | The backend shall be structured into clear layers (controller, service, domain/model, persistence) to ease future changes. dataforest+1​ |
-| NFR‑8     | Core logic (e.g., filtering, suggestion, PDF parsing) should have automated tests where feasible. perforce+2​                            |
+| NFR‑7     | The backend shall be structured into clear layers (controller, service, domain/model, persistence) to ease future changes.  |
+| NFR‑8     | Core logic (e.g., filtering, suggestion, PDF parsing) should have automated tests where feasible.                            |
 
 ## 6. Technical Constraints
-| Numbering | Description                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| TC‑1      | The backend shall be implemented in Java using Spring Boot. perforce+1​                                                      |
-| TC‑2      | The project shall use Gradle as the build system. perforce​                                                                  |
-| TC‑3      | The project shall use Git and GitHub for version control, issues, and milestones. geeksforgeeks+1​                           |
-| TC‑4      | The application shall initially use an in‑memory data store and later a relational database via Spring Data JPA. perforce+1​ |
+| Numbering | Description                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| TC‑1      | The backend shall be implemented in Java using Spring Boot.                                             |
+| TC‑2      | The project shall use Gradle as the build system.                                                     |
+| TC‑3      | The project shall use Git and GitHub for version control, issues, and milestones.     |
+| TC‑4      | The application shall initially use an in‑memory data store and later a relational database via Spring Data JPA. |
 
 ## 7. Acceptance Criteria (MVP)
 The MVP is considered complete when:
