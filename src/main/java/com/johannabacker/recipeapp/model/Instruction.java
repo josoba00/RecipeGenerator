@@ -1,10 +1,11 @@
 package com.johannabacker.recipeapp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Instruction {
-    private Long id;
     private int order;
     private String step;
 }
