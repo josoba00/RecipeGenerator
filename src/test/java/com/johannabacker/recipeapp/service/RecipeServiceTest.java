@@ -7,11 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 @DisplayName("RecipeService - CRUD behaviour")
 class RecipeServiceTest {
 
@@ -43,8 +46,8 @@ class RecipeServiceTest {
                     "Spiegeleier mit Kartoffeln",
                     1800,
                     4,
-                    eggIngredients,
-                    eggInstructions,
+                    new ArrayList<>(eggIngredients),
+                    new ArrayList<>(eggInstructions),
                     "");
 
             assertAll(
@@ -253,7 +256,7 @@ class RecipeServiceTest {
 
             List<Ingredient> invalidIngredients1 = List.of(
                     new Ingredient("g", 400, "Hackfleisch"),
-                    new Ingredient("g", 300, "null")
+                    new Ingredient("g", 300, null)
             );
 
             assertAll(

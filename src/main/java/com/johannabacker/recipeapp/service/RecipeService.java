@@ -54,9 +54,9 @@ public class RecipeService {
         recipes.remove(id);
     }
 
-    private void validateRecipe(String name, int timeInSeconds, int portion, List<Ingredient> ingredients, List<Instruction> instructions) {
+    private void validateRecipe(String recipeName, int timeInSeconds, int portion, List<Ingredient> ingredients, List<Instruction> instructions) {
         // check general recipe setup
-        if (name == null || name.isBlank()) {
+        if (recipeName == null || recipeName.isBlank()) {
             throw new IllegalArgumentException("Recipe name must not be empty!");
         } if (portion <= 0) {
             throw new IllegalArgumentException("Portion of Recipe must be higher than zero");
@@ -67,20 +67,20 @@ public class RecipeService {
         }
 
         // check ingredients
-        if (ingredients.stream().map(Ingredient::getUnit).allMatch(unit -> unit!= null && !unit.isBlank())){
+        if (ingredients.stream().map(Ingredient::getUnit).anyMatch(unit -> unit == null || unit.isBlank())){
             throw new IllegalArgumentException("Ingredients must contain a unit!");
-        } if (ingredients.stream().map(Ingredient::getAmount).allMatch(amount -> amount >= 0)){
+        } if (ingredients.stream().map(Ingredient::getAmount).anyMatch(amount -> amount <= 0)){
             throw new IllegalArgumentException("Ingredients must contain an amount higher than zero!");
-        } if (ingredients.stream().map(Ingredient::getName).allMatch(rname -> rname != null && !rname.isBlank())) {
+        } if (ingredients.stream().map(Ingredient::getName).anyMatch(name -> name == null || name.isBlank())) {
             throw new IllegalArgumentException("Ingredients must contain a name!");
         }
 
         // check instructions
-        if (instructions.stream().map(Instruction::getOrder).allMatch(order -> order != null && order > 0)){
+        if (instructions.stream().map(Instruction::getOrder).anyMatch(order -> order == null || order <= 0)){
             throw new IllegalArgumentException("Instructions must have positive order numbers!");
-        } if (instructions.stream().map(Instruction::getOrder).distinct().count() == instructions.size()){
+        } if (instructions.stream().map(Instruction::getOrder).distinct().count() != instructions.size()){
             throw new IllegalArgumentException("Instructions must have unique order numbers!");
-        } if (instructions.stream().map(Instruction::getStep).allMatch(step -> step != null && !step.isBlank())){
+        } if (instructions.stream().map(Instruction::getStep).anyMatch(step -> step == null || step.isBlank())){
             throw new IllegalArgumentException("Instructions must have a name!");
         }
     }
