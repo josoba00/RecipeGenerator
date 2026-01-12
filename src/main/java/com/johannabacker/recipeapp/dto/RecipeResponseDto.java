@@ -18,7 +18,7 @@ public class RecipeResponseDto {
 
     public static RecipeResponseDto fromRecipe(Recipe recipe) {
         RecipeResponseDto dto = new RecipeResponseDto();
-        dto.id = recipe.getId();
+        dto.id = recipe.getRecipeId();
         dto.name = recipe.getName();
         dto.timeInSeconds = recipe.getTimeInSeconds();
         dto.portion = recipe.getPortion();

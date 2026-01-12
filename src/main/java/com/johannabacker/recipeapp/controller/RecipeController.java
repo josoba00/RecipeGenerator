@@ -4,6 +4,7 @@ import com.johannabacker.recipeapp.dto.RecipeRequestDto;
 import com.johannabacker.recipeapp.dto.RecipeResponseDto;
 import com.johannabacker.recipeapp.model.Recipe;
 import com.johannabacker.recipeapp.service.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,8 @@ public class RecipeController {
 
     @PostMapping
     public ResponseEntity<RecipeResponseDto> createRecipe(@RequestBody RecipeRequestDto request){
-        Recipe created = recipeService.createRecipe(request.getName(), request.getTimeInSeconds(), request.getPortion(), request.getIngredients(), request.getInstructions(), request.getNotes());
+        Recipe toCreate = new Recipe(request.getName(), request.getTimeInSeconds(), request.getPortion(), request.getIngredients(), request.getInstructions(), request.getNotes());
+        Recipe created = recipeService.createRecipe(toCreate);
         return ResponseEntity.status(HttpStatus.CREATED).body(RecipeResponseDto.fromRecipe(created));
     }
 
@@ -40,7 +42,15 @@ public class RecipeController {
 
     @PutMapping("/{id}")
     public RecipeResponseDto updateRecipe(@PathVariable Long id, @RequestBody RecipeRequestDto request){
-        Recipe updated = recipeService.updateRecipe(id, request.getName(), request.getTimeInSeconds(), request.getPortion(), request.getIngredients(), request.getInstructions(), request.getNotes());
+        Recipe toUpdate = recipeService.getRecipeById(id);
+
+        toUpdate.setName(request.getName());
+        toUpdate.setPortion(request.getPortion());
+        toUpdate.setIngredients(request.getIngredients());
+        toUpdate.setInstructions(request.getInstructions());
+        toUpdate.setNotes(request.getNotes());
+
+        Recipe updated = recipeService.updateRecipe(toUpdate);
         return RecipeResponseDto.fromRecipe(updated);
     }
 
