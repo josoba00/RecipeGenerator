@@ -36,7 +36,7 @@ Current and planned features (per milestones):
 | Nr. | Milestone                  | Description                                                                                                                                        |  Status  |
 |-----|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
 | 0   | Setup and Planning         | Set everything up: add README, create UML/ER diagram, plan the timeline.                                                                           | &#x2612; |
-| 1   | CRUD‑API without database  | Backend CRUD‑API: Create (POST new object), Read (GET list or detail), Update (PUT/PATCH object), Delete (DELETE object).                          | &#x2610; |
+| 1   | CRUD‑API without database  | Backend CRUD‑API: Create (POST new object), Read (GET list or detail), Update (PUT/PATCH object), Delete (DELETE object).                          | &#x2612; |
 | 2   | Filter of the recipes      | Filter by specific categories (type, meat, vegetarian, …); recommendation of a recipe based on filters.                                            | &#x2610; |
 | 3   | Frontend – basic view      | Basic frontend: show list of recipes, recipe detail view, basic filter via query parameters.                                                       | &#x2610; |
 | 4   | Frontend – add own recipes | Detailed frontend: add form to add recipes via frontend, save data, update recipe list, validate backend with error messages and mandatory fields. | &#x2610; |
