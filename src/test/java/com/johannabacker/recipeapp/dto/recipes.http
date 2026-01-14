@@ -1,9 +1,13 @@
+### Get all recipes (GET)
+GET http://localhost:8080/api/recipes
+Accept: application/json
+
 ### Create recipe (POST)
 POST http://localhost:8080/api/recipes
 Content-Type: application/json
 
 {
-  "name": "Spaghetti Bolognese",
+  "name": "Spaghetti Pasta",
   "timeInSeconds": 1800,
   "portion": 4,
   "ingredients": [
@@ -12,9 +16,9 @@ Content-Type: application/json
     { "unit": "Stück", "amount": 1, "name": "Zwiebel" }
   ],
   "instructions": [
-    { "order": 1, "step": "Wasser zum Kochen bringen." },
-    { "order": 2, "step": "Spaghetti nach Packungsanweisung kochen." },
-    { "order": 3, "step": "Hackfleisch und Zwiebel anbraten, Sauce zubereiten." }
+    { "orderNumber": 1, "step": "Wasser zum Kochen bringen." },
+    { "orderNumber": 2, "step": "Spaghetti nach Packungsanweisung kochen." },
+    { "orderNumber": 3, "step": "Hackfleisch und Zwiebel anbraten, Sauce zubereiten." }
   ],
   "notes": "Klassisches Familienrezept."
 }
@@ -24,11 +28,11 @@ GET http://localhost:8080/api/recipes
 Accept: application/json
 
 ### Get single recipe by id (GET)
-GET http://localhost:8080/api/recipes/0
+GET http://localhost:8080/api/recipes/1
 Accept: application/json
 
 ### Update recipe (PUT)
-PUT http://localhost:8080/api/recipes/0
+PUT http://localhost:8080/api/recipes/1
 Content-Type: application/json
 
 {
@@ -41,15 +45,19 @@ Content-Type: application/json
     { "unit": "Stück", "amount": 1, "name": "Zwiebel" }
   ],
   "instructions": [
-    { "order": 1, "step": "Wasser zum Kochen bringen." },
-    { "order": 2, "step": "Spaghetti nach Packungsanweisung kochen." },
-    { "order": 3, "step": "Hackfleisch und Zwiebel anbraten, Sauce zubereiten." }
+    { "orderNumber": 1, "step": "Wasser zum Kochen bringen." },
+    { "orderNumber": 2, "step": "Spaghetti nach Packungsanweisung kochen." },
+    { "orderNumber": 3, "step": "Hackfleisch und Zwiebel anbraten, Sauce zubereiten." }
   ],
   "notes": "schmeckt gut"
 }
 
 ### Delete recipe (DELETE)
-DELETE http://localhost:8080/api/recipes/0
+DELETE http://localhost:8080/api/recipes/1
+
+### Get single recipe by id (GET)
+GET http://localhost:8080/api/recipes/1
+Accept: application/json
 
 ### Error case: get unknown id (404)
 GET http://localhost:8080/api/recipes/999
@@ -67,7 +75,7 @@ Content-Type: application/json
     { "unit": "g", "amount": 100, "name": "Test" }
   ],
   "instructions": [
-    { "order": 1, "step": "Test" }
+    { "orderNumber": 1, "step": "Test" }
   ],
   "notes": ""
 }
