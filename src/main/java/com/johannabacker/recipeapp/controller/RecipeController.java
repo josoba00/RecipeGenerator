@@ -2,6 +2,7 @@ package com.johannabacker.recipeapp.controller;
 
 import com.johannabacker.recipeapp.dto.RecipeRequestDto;
 import com.johannabacker.recipeapp.dto.RecipeResponseDto;
+import com.johannabacker.recipeapp.model.Ingredient;
 import com.johannabacker.recipeapp.model.Recipe;
 import com.johannabacker.recipeapp.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,19 @@ public class RecipeController {
         Recipe toUpdate = recipeService.getRecipeById(id);
 
         toUpdate.setName(request.getName());
+        toUpdate.setTimeInSeconds(request.getTimeInSeconds());
         toUpdate.setPortion(request.getPortion());
-        toUpdate.setIngredients(request.getIngredients());
-        toUpdate.setInstructions(request.getInstructions());
         toUpdate.setNotes(request.getNotes());
+
+        toUpdate.getIngredients().clear();
+        toUpdate.getInstructions().clear();
+
+        if (request.getIngredients() != null){
+            request.getIngredients().forEach(toUpdate::addIngredient);
+        }
+        if (request.getInstructions() != null){
+            request.getInstructions().forEach(toUpdate::addInstruction);
+        }
 
         Recipe updated = recipeService.updateRecipe(toUpdate);
         return RecipeResponseDto.fromRecipe(updated);

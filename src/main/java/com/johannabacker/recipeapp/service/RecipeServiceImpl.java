@@ -61,9 +61,9 @@ public class RecipeServiceImpl implements RecipeService {
             throw new IllegalArgumentException("Recipe name must not be empty!");
         } if (recipe.getPortion() <= 0) {
             throw new IllegalArgumentException("Portion of Recipe must be higher than zero");
-        } if (recipe.getIngredients().isEmpty()){
+        } if (recipe.getIngredients() == null || recipe.getIngredients().isEmpty()){
             throw new IllegalArgumentException("Recipe must contain at least one Ingredient!");
-        } if (recipe.getInstructions().isEmpty()){
+        } if (recipe.getInstructions() == null || recipe.getInstructions().isEmpty()){
             throw new IllegalArgumentException("Recipe must contain at least one Instruction!");
         }
 
