@@ -1,3 +1,6 @@
+// Running application needed
+// POST recipe needs to get/have ID=1, otherwise GET by ID and DELETE does not work
+
 ### Get all recipes (GET)
 GET http://localhost:8080/api/recipes
 Accept: application/json
