@@ -2,7 +2,7 @@ INSERT INTO recipe (recipe_id, name, time_in_seconds, portion, notes)
 VALUES (10, 'Spaghetti Bolognese', 1800, 4, 'Klassisches Rezept');
 
 INSERT INTO ingredient (id, unit, amount, name, recipe_id)
-VALUES (10, 'g', 400, 'Spaghetti', 10),
+VALUES (10, 'g', 400, 'Kartoffeln', 10),
        (20, 'g', 300, 'Hackfleisch', 10);
 
 INSERT INTO instruction (id, order_number, step, recipe_id)

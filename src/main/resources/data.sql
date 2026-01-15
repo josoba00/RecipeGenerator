@@ -16,7 +16,7 @@ VALUES (200, 'Pasta Arrabiata', 1800, 4, 'Simples Rezept');
 
 INSERT INTO ingredient (id, unit, amount, name, recipe_id)
 VALUES (31, 'g', 400, 'Nudeln', 200),
-       (41, 'g', 300, 'Tomatensauce', 200);
+       (41, 'g', 300, 'Passata', 200);
 
 INSERT INTO instruction (id, order_number, step, recipe_id)
 VALUES (41, 1, 'Wasser zum Kochen bringen.', 200),

@@ -8,3 +8,6 @@ services:
     volumes:
       - ./ollama-data:/root/.ollama
     restart: unless-stopped
+
+# To load the model into running container, execute this in terminal
+# docker exec -it ollama ollama run llama2
