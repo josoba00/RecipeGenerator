@@ -1,5 +1,6 @@
 package com.johannabacker.recipeapp.service;
 
+import com.johannabacker.recipeapp.model.DietType;
 import com.johannabacker.recipeapp.model.Recipe;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ class LlamaAIServiceTest {
     private RecipeService recipeService;
 
     @Autowired
-    private TagClassifierService classifyService;
+    private ClassifierService classifyService;
 
     @Test
     void generateResult() {
@@ -29,26 +30,16 @@ class LlamaAIServiceTest {
     @Test
     void generateResultWithPrompt() {
         Recipe recipe = recipeService.getRecipeById(20L);
-        String dietType = classifyService.classifyDietType(recipe);
-        String gluten = classifyService.classifyGluten(recipe);
-        System.out.println(dietType + " " +  gluten);
+        DietType dietType = classifyService.classifyDietType(recipe);
 
-        assertAll(
-                () -> assertNotNull(dietType),
-                () -> assertEquals("Vegan", dietType)
-        );
+        assertEquals(DietType.VEGAN, dietType);
     }
 
     @Test
     void generateResultWithMeat() {
         Recipe recipe = recipeService.getRecipeById(10L);
-        String dietType = classifyService.classifyDietType(recipe);
-        String gluten = classifyService.classifyGluten(recipe);
-        System.out.println(dietType + " " +  gluten);
+        DietType dietType = classifyService.classifyDietType(recipe);
 
-        assertAll(
-                () -> assertNotNull(dietType),
-                () -> assertEquals("Fleischhaltig", dietType)
-        );
+        assertEquals(DietType.MEAT, dietType);
     }
 }

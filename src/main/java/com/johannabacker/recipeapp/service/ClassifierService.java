@@ -1,5 +1,6 @@
 package com.johannabacker.recipeapp.service;
 
+import com.johannabacker.recipeapp.model.DietType;
 import com.johannabacker.recipeapp.model.Ingredient;
 import com.johannabacker.recipeapp.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
 @Service
-public class TagClassifierService {
+public class ClassifierService {
 
     @Autowired
     private LlamaAIService aiService;
@@ -45,7 +46,7 @@ public class TagClassifierService {
         return aiService.generateResult(userPrompt);
     }
 
-    public String classifyDietType(Recipe recipe){
+    public DietType classifyDietType(Recipe recipe){
         String base = buildIngredientContext(recipe);
 
         String task = """
@@ -68,8 +69,21 @@ public class TagClassifierService {
         """;
 
         String prompt = base + task;
+        String result = aiService.generateResult(prompt);
+        return normalizeOutput(result);
+    }
 
-        return aiService.generateResult(prompt);
+    private DietType normalizeOutput(String output){
+        if (output.toLowerCase().contains("vegan")){
+            return DietType.VEGAN;
+        }
+        if (output.toLowerCase().contains("vegatarisch")){
+            return DietType.VEGETARIAN;
+        }
+        if (output.toLowerCase().contains("fleisch")){
+            return DietType.MEAT;
+        }
+        return null;
     }
 
 }
