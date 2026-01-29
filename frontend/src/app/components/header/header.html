@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <button
+    matIconButton
+    (click) = 'snav.toggle()'
+    class="sidenav-button"
+    aria-label="Sidenav öffnen">
+    <mat-icon class="sidenav-icon">menu</mat-icon>
+  </button>
+
+  <span class="header-title">Recipe Forge</span>
+  <span class="spacer"></span>
+  <button mat-button>Dashboard</button>
+  <button mat-button>Rezepte</button>
+  <button mat-button>Neues Rezept</button>
+</mat-toolbar>
+
+<mat-sidenav-container class="layout-container">
+  <mat-sidenav #snav position="start" mode="side">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

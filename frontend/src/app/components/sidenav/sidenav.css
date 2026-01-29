@@ -1,0 +1,17 @@
+.sidenav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sidenav-toolbar {
+  height: 64px;
+}
+
+.sidenav-nav {
+  padding-top: 16px;
+}
+
+.active-link {
+  background-color: rgba(76, 175, 80, 0.2);
+}

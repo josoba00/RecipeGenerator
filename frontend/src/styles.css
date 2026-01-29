@@ -1,0 +1,56 @@
+:root {
+  --recipe-green: #4CAF50;
+  --recipe-orange: #FF9800;
+  --recipe-bg: #FAFAFA;
+  --recipe-white: #FFFFFF;
+  --recipe-text-dark: #212121;
+  --recipe-text-light: #757575;
+}
+
+/* App Hintergrund */
+body, .main-content {
+  background-color: var(--recipe-bg);
+  color: var(--recipe-text-dark);
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+/* Primary Buttons */
+.mat-mdc-primary {
+  background-color: var(--recipe-green) !important;
+}
+
+.mat-mdc-primary .mdc-button__label {
+  color: white !important;
+}
+
+/* Accent Buttons/Links */
+.mat-mdc-accent {
+  background-color: var(--recipe-orange) !important;
+}
+
+/* Recipe Cards */
+.recipe-card {
+  background: var(--recipe-white);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid var(--recipe-green);
+}
+
+/* Filter Chips */
+.mat-mdc-chip-set .mat-mdc-chip {
+  background: var(--recipe-orange);
+  color: white;
+}
+
+/* Text Styles */
+h1, h2 { color: var(--recipe-text-dark); }
+p, label { color: var(--recipe-text-light); }
+
+/* Hover Effekte */
+button:hover, a:hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}

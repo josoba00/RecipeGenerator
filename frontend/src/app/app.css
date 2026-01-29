@@ -1,0 +1,5 @@
+.main-content {
+  margin-top: 64px;
+  padding: 20px;
+  min-height: calc(100vh - 64px);
+}
